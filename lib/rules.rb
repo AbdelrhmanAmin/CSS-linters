@@ -13,7 +13,7 @@ class Rules
   def indent_block(lines, errors)
     lines.each_with_index do |line, i|
       if line.include?(';')
-        if line.match(/^(\s){2}[a-zA-Z]/)
+        unless line.match(/^(\s){2}[a-zA-Z]/)
           errors["indent_block"] << 'i'
         end
       end
