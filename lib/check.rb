@@ -6,6 +6,7 @@ class Checker
     "indent_block" => [],
     "lower_case" => [],
     "empty_block" => [],
+    "empty_line" => [],
     "no_unit" => [],
   }
   lines = File.open(filepath)
@@ -15,6 +16,7 @@ class Checker
       rules.indent_block(lines,errors)
       rules.lower_case(lines,errors)
       rules.empty_block(lines,errors)
+      rules.empty_line(lines,errors)
       rules.no_unit(lines,errors)
     end
     p errors

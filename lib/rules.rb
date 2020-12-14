@@ -14,7 +14,7 @@ class Rules
     lines.each_with_index do |line, i|
       if line.include?(';')
         unless line.match(/^(\s){2}[a-zA-Z]/)
-          errors["indent_block"] << 'i'
+          errors["indent_block"] << i
         end
       end
     end
@@ -25,7 +25,7 @@ class Rules
     lines.each_with_index do |line , i|
       if line.include?('#')
         if line.match(/^#(?:[0-9a-f]{3}){1,2}$/)
-          errors["lower_case"] << 'i'
+          errors["lower_case"] << i
         end
       end
     end
@@ -35,16 +35,26 @@ class Rules
   def empty_block(lines,errors)
     lines.each_with_index do |line, i|
       if line.match(/{\s|\n}/)
-        errors["empty_block"] << 'i'
+        errors["empty_block"] << i
       end
     end
     errors
   end
+
+   def empty_line(lines, errors)
+    lines.each_with_index do |line, i|
+      if line.match(/^\s+$/)
+        errors["empty_block"] << i
+      end
+    end
+    errors
+  end
+  
   def no_unit(lines,errors)
     lines.each_with_index do |line, i|
       if line.include?(';')
         if line.match(/[\s](0\w|0%)/)
-          errors["no_unit"] << 'i'
+          errors["no_unit"] << i
         end
       end
     end
