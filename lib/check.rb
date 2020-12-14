@@ -1,14 +1,17 @@
 require_relative '../lib/rules.rb'
 class Checker
-  def check(filepath)
-    errors = {
+  attr_accessor :errors
+  def initialize
+    @errors = {
     "space_brace" => [],
     "indent_block" => [],
     "lower_case" => [],
     "empty_block" => [],
     "empty_line" => [],
     "no_unit" => [],
-  }
+    }
+  end
+  def check(filepath)
   if !filepath.empty?
       lines = File.open(filepath)
       rules = Rules.new

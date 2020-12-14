@@ -9,3 +9,4 @@ puts "Please enter the path of the file you want to hack!".red
 filepath = gets.chomp
 linter = Checker.new
 linter.check(filepath)
+p linter.errors

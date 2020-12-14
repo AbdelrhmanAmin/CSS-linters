@@ -13,7 +13,7 @@ class Rules
   def indent_block(lines, errors)
     lines.each_with_index do |line, i|
       if line.include?(';')
-        unless line.match(/^(\s){2}[a-zA-Z]/)
+        unless line.match(/^(\s){2}/)
           errors["indent_block"] << i
         end
       end
@@ -33,8 +33,9 @@ class Rules
   end
 
   def empty_block(lines,errors)
+
     lines.each_with_index do |line, i|
-      if line.match(/\{\s+\n*\}|\{\n*\}/)
+      if line.match(/\{\n*\}/)
         errors["empty_block"] << i
       end
     end
@@ -58,6 +59,6 @@ class Rules
         end
       end
     end
-    p errors
+     errors
   end
 end
