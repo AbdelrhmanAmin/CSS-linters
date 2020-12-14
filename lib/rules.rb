@@ -24,7 +24,7 @@ class Rules
   def lower_case(lines, errors)
     lines.each_with_index do |line , i|
       if line.include?('#')
-        if line.match(/^#(?:[0-9a-f]{3}){1,2}$/)
+        unless line.match(/^#(?:[0-9a-f]{3}){1,2}$/)
           errors["lower_case"] << i
         end
       end
@@ -34,7 +34,7 @@ class Rules
 
   def empty_block(lines,errors)
     lines.each_with_index do |line, i|
-      if line.match(/{\s|\n}/)
+      if line.match(/{\n*}/)
         errors["empty_block"] << i
       end
     end
@@ -44,7 +44,7 @@ class Rules
    def empty_line(lines, errors)
     lines.each_with_index do |line, i|
       if line.match(/^\s+$/)
-        errors["empty_block"] << i
+        errors["empty_line"] << i
       end
     end
     errors
@@ -58,6 +58,6 @@ class Rules
         end
       end
     end
-    errors
+    p errors
   end
 end
