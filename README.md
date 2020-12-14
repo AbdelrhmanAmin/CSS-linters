@@ -1,1 +1,1 @@
-# Ruby-linters
+# CSS-linters
