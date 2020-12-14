@@ -34,7 +34,7 @@ class Rules
 
   def empty_block(lines,errors)
     lines.each_with_index do |line, i|
-      if line.match(/{\n*}/)
+      if line.match(/\{\s+\n*\}|\{\n*\}/)
         errors["empty_block"] << i
       end
     end

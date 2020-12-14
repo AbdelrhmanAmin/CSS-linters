@@ -24,7 +24,6 @@ class Checker
       rules.empty_line(lines,errors)
       lines = File.open(filepath)
       rules.no_unit(lines,errors)
-      lines = File.open(filepath)
     end
     errors
   end
