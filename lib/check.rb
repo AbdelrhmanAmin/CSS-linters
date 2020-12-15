@@ -14,7 +14,6 @@ class Checker
   end
   def check(filepath)
   if !filepath.empty?
-      lines = File.open(filepath)
       rules = Rules.new
       lines = File.open(filepath)
       rules.space_before_brace(lines,errors)

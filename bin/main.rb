@@ -4,8 +4,8 @@ require_relative '../lib/rules'
 require_relative '../lib/check'
 require 'colorize'
 
-puts "Welcome To My Custom Linter!".bold
-puts "Please enter the path of the file you want to hack!".red
+puts "****Welcome To My Custom Linter!****".bold
+puts "Please enter the path of the file you want to hack!".yellow
 filepath = gets.chomp
 linter = Checker.new
 linter.check(filepath)
@@ -16,7 +16,7 @@ linter.errors.each do |key, value|
   end
 end
 if count.zero?
-  puts "Congratualtions! Your project is free of errors! Get a cup of coffee!!"
+  print "Congratualtions! Your project is free of errors! Get a cup of coffee!!\n".white.on_green.bold
 end
 if count > 0
   linter.errors.each do |key, value|
@@ -42,8 +42,8 @@ if count > 0
       err = "Please add a semicolon (;)"
     end
     value.each do |line|
-      p "#{key}/: #{err} : On line #{line+=1}"
+      print "#{key}/: #{err} : On line #{line+=1}\n".red
     end
   end
-  puts 'Sorry mate you still have to work!'
+  puts 'Sorry mate you still have to work!'.bold.red
 end
