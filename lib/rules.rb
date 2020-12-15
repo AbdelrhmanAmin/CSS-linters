@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 # rubocop:disable Metrics/MethodLength
+# rubocop:disable Style/Documentation
 
 class Rules
   def space_before_brace(lines, errors)
@@ -89,3 +90,4 @@ class Rules
 end
 
 # rubocop:enable Metrics/MethodLength
+# rubocop:enable Style/Documentation

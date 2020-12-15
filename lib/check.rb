@@ -3,6 +3,7 @@
 
 # rubocop:disable Metrics/AbcSize
 # rubocop:disable Metrics/Metrics/MethodLength
+# rubocop:disable Style/Documentation
 
 require_relative '../lib/rules'
 class Checker
@@ -44,3 +45,4 @@ end
 
 # rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/Metrics/MethodLength
+# rubocop:enable Style/Documentation
