@@ -1,5 +1,4 @@
 # Class for rules
-# rubocop:disable Metrics/MethodLength
 
 class Rules
   def space_before_brace(lines, errors)
@@ -85,5 +84,3 @@ class Rules
     "MISSING_SEMICOLON/: #{err} : On line #{@err_line}"
   end
 end
-
-# rubocop:enable Metrics/MethodLength

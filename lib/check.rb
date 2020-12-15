@@ -36,4 +36,3 @@ class Checker
     errors
   end
 end
-
