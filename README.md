@@ -11,9 +11,6 @@ The linter is developed in Ruby, It's a linter for beginners, i.e., it provides 
   - 7-Add the name of the file you want to test, For example 'css/bad.css' or 'css/good.css'
 ![Example](./assets/terminal.png)
 
-## Video
-
-
 ## Rules
 
 - ### **Empty Block**:
