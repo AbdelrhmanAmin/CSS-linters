@@ -4,7 +4,7 @@ require_relative '../lib/rules'
 require_relative '../lib/check'
 require 'colorize'
 
-puts '****Welcome To My Custom Linter!****'.bold
+puts '****Welcome To My Custom Ruby Linter!****'.bold
 puts 'Please enter the path of the file you want to hack!'.yellow
 filepath = gets.chomp
 linter = Checker.new
