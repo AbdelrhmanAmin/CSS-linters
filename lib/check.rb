@@ -5,10 +5,11 @@ class Checker
     @errors = {
     "space_brace" => [],
     "indent_block" => [],
-    "lower_case" => [],
+    "hex_color" => [],
     "empty_block" => [],
     "empty_line" => [],
     "no_unit" => [],
+    "missing_semicolon" => [],
     }
   end
   def check(filepath)
@@ -20,13 +21,15 @@ class Checker
       lines = File.open(filepath)
       rules.indent_block(lines,errors)
       lines = File.open(filepath)
-      rules.lower_case(lines,errors)
+      rules.hex_color(lines,errors)
       lines = File.open(filepath)
       rules.empty_block(lines,errors)
       lines = File.open(filepath)
       rules.empty_line(lines,errors)
       lines = File.open(filepath)
       rules.no_unit(lines,errors)
+      lines = File.open(filepath)
+      rules.missing_semicolon(lines,errors)
     end
     errors
   end

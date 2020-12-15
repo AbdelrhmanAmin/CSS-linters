@@ -12,7 +12,12 @@ class Rules
 
   def indent_block(lines, errors)
     lines.each_with_index do |line, i|
-      if line.include?(';')
+      if line.include?(':')
+        if line.match(/^(\s){2}/)
+          if line.match(/^(\s){3,}/)
+            errors["indent_block"] << i
+          end
+        end
         unless line.match(/^(\s){2}/)
           errors["indent_block"] << i
         end
@@ -21,11 +26,11 @@ class Rules
     errors
   end
 
-  def lower_case(lines, errors)
+  def hex_color(lines, errors)
     lines.each_with_index do |line , i|
       if line.include?('#')
-        unless line.match(/^#(?:[0-9a-f]{3}){1,2}$/)
-          errors["lower_case"] << i
+        unless line.match(/#([a-f]|[0-9]){3,6}/)
+          errors["hex_color"] << i
         end
       end
     end
@@ -53,9 +58,20 @@ class Rules
   
   def no_unit(lines,errors)
     lines.each_with_index do |line, i|
-      if line.include?(';')
+      if line.include?(':')
         if line.match(/[\s](0\w|0%)/)
           errors["no_unit"] << i
+        end
+      end
+    end
+     errors
+  end
+  
+  def missing_semicolon(lines, errors)
+    lines.each_with_index do |line, i|
+      if line.include?(':')
+        unless line.match(/;$/)
+          errors["missing_semicolon"] << i
         end
       end
     end
