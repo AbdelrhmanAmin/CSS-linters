@@ -3,7 +3,7 @@ require_relative "../lib/rules.rb"
 describe Rules do
   let(:check) {Rules.new}
   let(:wrong_color) { ['#00;'] }
-  let(:right_color) { ['#000']}
+  let(:right_color) { ['#000;']}
   let(:wrong_indent) { ['.test {', 'background: blue;', '}'] }
   let(:right_indent) { ['.test {', '  background: blue;', '}'] }
   let(:right_brace) { ['.test {', '  background: blue;', '}'] }

@@ -36,7 +36,7 @@ class Rules
     err = "Please correct the hex color to be only 3 or 6 letters or digits"
     lines.each_with_index do |line , i|
       if line.include?('#')
-        unless line.match(/#([a-f]|[0-9]){3,6}/)
+        unless line.match(/#([a-f]|[0-9]){3};$|#([a-f]|[0-9]){6};$/)
           @err_line = i +1
           errors["hex_color"] << i+1
         end
