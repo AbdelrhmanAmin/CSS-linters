@@ -99,7 +99,7 @@ describe Rules do
       it 'return error for missing semicolon' do
         expect(check.missing_semicolon(missed_semicolon,errors)).to eql('MISSING_SEMICOLON/: Please add a semicolon (;) : On line 2')
       end
-      it 'return No error' do
+      it 'return No error if there is a semicolon' do
         expect(check.missing_semicolon(with_semicolon,errors)).to_not eql('MISSING_SEMICOLON/: Please add a semicolon (;) : On line 2')
       end
     end
