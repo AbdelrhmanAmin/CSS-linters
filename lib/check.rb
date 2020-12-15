@@ -1,7 +1,4 @@
 # Class for checker
-# rubocop:disable Metrics/AbcSize
-# rubocop:disable Metrics/Metrics/MethodLength
-
 require_relative '../lib/rules'
 class Checker
   attr_accessor :errors
@@ -40,5 +37,3 @@ class Checker
   end
 end
 
-# rubocop:enable Metrics/AbcSize
-# rubocop:enable Metrics/Metrics/MethodLength

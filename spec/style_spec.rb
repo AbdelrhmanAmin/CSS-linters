@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/BlockLength
 # rubocop:disable Layout/SpaceAfterComma
 # rubocop:disable Layout/LineLength
 
@@ -107,6 +106,5 @@ describe Rules do
   end
 end
 
-# rubocop:enable Metrics/BlockLength
 # rubocop:enable Layout/SpaceAfterComma
 # rubocop:enable Layout/LineLength
