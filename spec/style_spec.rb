@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # rubocop:disable Metrics/BlockLength
 # rubocop:disable Layout/SpaceAfterComma
 # rubocop:disable Layout/LineLength
