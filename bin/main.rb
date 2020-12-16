@@ -8,7 +8,7 @@ puts '****Welcome To My Custom Ruby Linter!****'.bold
 puts 'Please enter the path of the file you want to hack!'.yellow
 filepath = gets.chomp
 linter = Checker.new
-linter.check(filepath)
+linter.check(filepath) unless filepath.empty?
 count = 0
 linter.errors.each do |_key, value|
   count += 1 unless value.empty?
