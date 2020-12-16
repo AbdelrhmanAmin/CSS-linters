@@ -1,4 +1,4 @@
-
+# rubocop: disable Layout/LineLength
 require_relative '../lib/rules'
 
 describe Rules do
@@ -103,3 +103,4 @@ describe Rules do
     end
   end
 end
+# rubocop: enable Layout/LineLength
