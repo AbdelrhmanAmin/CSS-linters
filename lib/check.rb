@@ -15,7 +15,7 @@ class Checker
     }
     @rules = Rules.new
   end
-  def check(filepath)
+  def check (filepath)
     begin
       lines = File.open(filepath)
       rules.space_before_brace(lines, errors)
@@ -32,7 +32,7 @@ class Checker
       lines.rewind
       rules.missing_semicolon(lines, errors)
     rescue StandardError
-        errors['exception'] = 'INVALID'
+      errors['exception'] = 'INVALID'
     end
     errors
   end
