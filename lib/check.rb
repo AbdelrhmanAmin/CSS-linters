@@ -15,6 +15,7 @@ class Checker
     }
     @rules = Rules.new
   end
+  
   def check (filepath)
     begin
       lines = File.open(filepath)
