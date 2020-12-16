@@ -1,5 +1,3 @@
-# rubocop:disable Layout/SpaceAfterComma
-# rubocop:disable Layout/LineLength
 
 require_relative '../lib/rules'
 
@@ -105,6 +103,3 @@ describe Rules do
     end
   end
 end
-
-# rubocop:enable Layout/SpaceAfterComma
-# rubocop:enable Layout/LineLength

@@ -14,7 +14,10 @@ linter.errors.each do |_key, value|
   count += 1 unless value.empty?
 end
 print "Congratualtions! Your project is free of errors! Get a cup of coffee!!\n".white.on_green.bold if count.zero?
-if count.positive?
+if count == 1
+  puts "Please Add Valid Directory".bold.red
+end
+if count >= 2
   linter.errors.each do |key, value|
     err = 'Please add space before opening braces' if key == 'space_brace'
     err = 'Please add 2 spaces only' if key == 'indent_block'

@@ -1,7 +1,7 @@
 # Class for checker
 require_relative '../lib/rules'
 class Checker
-  attr_accessor :errors
+  attr_reader :errors
 
   def initialize
     @errors = {
@@ -18,21 +18,24 @@ class Checker
   def check(filepath)
     unless filepath.empty?
       rules = Rules.new
+      begin
       lines = File.open(filepath)
       rules.space_before_brace(lines, errors)
-      lines = File.open(filepath)
+      lines.rewind()
       rules.indent_block(lines, errors)
-      lines = File.open(filepath)
+      lines.rewind()
       rules.hex_color(lines, errors)
-      lines = File.open(filepath)
+      lines.rewind()
       rules.empty_block(lines, errors)
-      lines = File.open(filepath)
+      lines.rewind()
       rules.empty_line(lines, errors)
-      lines = File.open(filepath)
+      lines.rewind()
       rules.no_unit(lines, errors)
-      lines = File.open(filepath)
+      lines.rewind()
       rules.missing_semicolon(lines, errors)
+      rescue StandardError => e
+        errors['exception'] = 'INVALID'
+      end
     end
-    errors
   end
 end
